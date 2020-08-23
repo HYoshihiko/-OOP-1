@@ -4,88 +4,85 @@
 
 class Car
 {
-    private $Name;
-    private $Number;
-    private $Color;
+    private $name;
+    private $number;
+    private $color;
 
-    public function __construct($Name, $Number , $Color)
+    public function __construct($name, $number , $color)
     {
-        $this->Name = $Name;
-        $this->Number = $Number;
-        $this->Color = $Color;
+        $this->name = $name;
+        $this->number = $number;
+        $this->color = $color;
     }
-
-
-
 
     public function getName()
     {
-        return $this->Name;
+        return $this->name;
     }
 
     public function getNumber()
     {
-        return $this->Number;
+        return $this->number;
     }
 
     public function getColor()
     {
-        return $this->Color;
+        return $this->color;
     }
 
 
 
 
-    public function setName($Name)
+    public function setName($name)
     {
-        $this->Name = $Name;
+        $this->name = $name;
     }
 
-    public function setNumber($Number)
+    public function setNumber($number)
     {
-        $this->Number = $Number;
+        $this->number = $number;
     }
 
-    public function setColor($Color)
+    public function setColor($color)
     {
-        $this->Color = $Color;
+        $this->color = $color;
     }
 
 
 
     public function infomation()
     {
-        echo '車の車種:' . $this->Name . "、 " . '車体番号:' . $this->Number . "、 " . 'カラー:' . $this->Color . "です。";;
+        return '車の車種:' . $this->getName() . "、 " . '車体番号:' . $this->getNumber() . "、 " . 'カラー:' . $this->getColor() . "です。";
     }
 
 
 }
 
 
-class  Taxi extends Car
+class Taxi extends Car
 {
     private $passenger;
 
-    public function Get_passenger()
+    public function getPassenger()
     {
         return $this->passenger;
     }
 
-    public function pickUp($Up_number)
+
+    public function pickUp($up_Number)
     {
-        $this->passenger += $Up_number;
+        $this->passenger += $up_Number;
     }
 
     public function infomation()
     {
-        parent::infomation();
-        echo '乗車人数は' . $this->passenger . '人です。';
+        return '車の車種:' . $this->getName() . "、 " . '車体番号:' . $this->getNumber() . "、 " . 'カラー:' . $this->getColor() . '、乗車人数は' . $this->getPassenger() .
+        '人です。';
     }
 
     public function lower($off_number)
     {
-        $this->passenger -= $off_number;
-        if ($this->passenger >= 0)
+        if (($this->passenger - $off_number) >= 0)
         {
             echo $off_number . '人降車しました。';
             $this->passenger -= $off_number;
