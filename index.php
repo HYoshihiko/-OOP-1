@@ -71,7 +71,7 @@ class Taxi extends Car
 
     public function pickUp($up_Number)
     {
-        $this->passenger += $up_Number;
+        return $this->passenger += $up_Number;
     }
 
     public function infomation()
